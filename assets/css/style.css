@@ -21,9 +21,7 @@ input.select-dropdown {
 body {
 	/*position: relative;*/
 	height: 100%;
-	background-image: url("../images/blockchain.jpg");
-	background-size:     cover;                      /* <------ */
-    background-position: center center;
+	background-color: rgba(30, 73, 174, 0.85);
 	display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -34,32 +32,25 @@ main {
   }
 
 nav {
-	/*background-image: url("../images/esbuilding.jpg");*/
-	background-size: 999px 999px;
-	background-color: #1b54c7;
-	background-position: 30px;
+	background-color: #082B6F;
 	padding: 10px;
 }
 
 .page-footer {
-	background-color: #1b54c7;
+	background-color: #1b55c7;
 	text-align: center;
 	height: 70px;
 	padding-bottom: 10px;
 }
 
-#green {
-	color: limegreen;
-}
+#footerTag {
 
-#red {
-	color: red;
 }
 
 nav.nav-extended, a.brand-logo.center  {
-/*background-color: #1b55c7*/;
-} 
-	
+background-color: #1b55c7;
+}
+
 
 .nav-content {
 	padding:20;
@@ -99,7 +90,7 @@ nav .brand-logo.center {
 .inputAPI {
 	/*border: 2px solid #082B6F;*/
 	text-align: center;
-	height: 80%;
+	height: 63%;
 	overflow: auto;
 	border-radius: 15px;
 }
@@ -130,10 +121,10 @@ nav .brand-logo.center {
 	padding: 10px;
 	/*border: #082B6F 2px solid;*/
 	color: white;
-	background-color: rgba(24, 52, 136, 0.88);
+	background-color: rgba(24, 52, 136, 0.81);
 	border-radius: 15px;
 	font-size: 18px;
-	box-shadow: 5px 5px 5px rgba(16, 15, 15, 0.88);
+	box-shadow: 5px 5px 5px rgba(16, 15, 15, 0.51);
 }
 
 .userCurrency {
@@ -169,11 +160,19 @@ nav .brand-logo.center {
 }
 
 #page2 {
-	height: 60%;
+	height: 100%;
 	margin-top: 30px;
 	/*padding-top: 15%;*/
 	/*overflow: hidden;*/
 	/*background-color: brown;*/
+}
+
+#page3 {
+	height: 100%;
+	margin-top: 30px;
+	/*overflow: hidden;*/
+	/*background-color: gray;*/
+	/*position: absolute;*/
 }
 
 /*.pushDown {
@@ -181,7 +180,7 @@ nav .brand-logo.center {
 }*/
 
 .widgetPlace {
-	height: 88%;
+	height: 75%;
 
 	/*padding-top: 15%*/
 }
@@ -193,32 +192,28 @@ nav .brand-logo.center {
 	height: 100%;
 }
 
-
-.widgetPlace {
-	width: 100%;
-}
+/*.imgGraph {
+	padding-top: 50%;
+}*/
 
 .inputAPI {
 	/*border: 2px solid #082B6F;*/
 	text-align: center;
-	height: 70%;
+	height: 295px;
 	overflow: auto;
 	border-radius: 15px;
 }
 
-#page2 {
-	height: 60%;
-	margin-top: 30px;
-	/*padding-top: 15%;*/
-	/*overflow: hidden;*/
-	/*background-color: brown;*/
+.selectionTop {
+	width: 65%;
+}
+
+.inputPage3 {
+	width: 90%;
 }
 
 .page-footer {
-	background-color: #1b54c7;
-	text-align: center;
-	height: 70px;
-	padding-bottom: 10px;
 	font-size: 10px;
 }
+
 }

@@ -1,8 +1,8 @@
 $(document).ready(function(){
     $(".scrollspy").scrollSpy();
-    
+
     $('select').material_select();
-    $("input.select-dropdown").val("    User Select");   
+    $("input.select-dropdown").val("    PICK YOUR COINS!");
 })
 
 
@@ -26,7 +26,6 @@ var queryURL = "https://api.coinmarketcap.com/v1/ticker/?limit=1000";
                 $(currencyIA).append("Name: " + ("</br>") + response[i].name + ("</br>"));
                 $(currencyIB).append("Price: $" + ("</br>") + response[i].price_usd + ("</br>"));
                 $(currencyIC).append("Change: " + ("</br>") + response[i].percent_change_24h + ("% <br>"))
-             
             }
 
         }
@@ -40,22 +39,27 @@ var queryURL = "https://api.coinmarketcap.com/v1/ticker/?limit=1000";
 
         var i = 0;
             function loadNext(){
-                                
+
                 if (i<array.length){
 
                     var coin = array[i];
 
                     if(coin == "Golem"){
                         coin = "golem-network-tokens";
-                    }    
-                        
+                    }
+
+
+                    // var currencyIA = "#currency" + i + "a";
+                    // var currencyIB = "#currency" + i + "b";
+                    // var currencyIC = "#currency" + i + "c";
+
                     var queryURL = "https://api.coinmarketcap.com/v1/ticker/" + coin + "/";
 
                     $.ajax({
                         url: queryURL,
                         method: "GET"
                     }).done(function(response){
-                        
+
                         var divver = $("<div class='row rowCurrency'>");
 
                         var subdivImg = $("<div class='col m3 s12 imgFix'>");
@@ -65,26 +69,15 @@ var queryURL = "https://api.coinmarketcap.com/v1/ticker/?limit=1000";
 
                         var icon = $("<img class='responsive-img' src='assets/images/" + coin + ".png'>");
 
-                                
+
                         var subsubdivA = $("<div class='userCurrency' id='currency" + i + "a'>");
                         var subsubdivB = $("<div class='userCurrency' id='currency" + i + "b'>");
                         var subsubdivC = $("<div class='userCurrency' id='currency" + i + "c'>");
 
-
-
                         $(subsubdivA).append("Name: " + response[0].name + "</br>");
                         $(subsubdivB).append("Price: $" + response[0].price_usd + "</br>");
+                        $(subsubdivC).append("Change: " + response[0].percent_change_24h + "% <br>");
 
-                        if (parseInt(response[0].percent_change_24h) > 0) {
-                        $(subsubdivC).append("<div id='green'><strong>Change: </strong>" + response[0].percent_change_24h + "%↑ <br></div>")};
-
-                        if (parseInt(response[0].percent_change_24h) < 0) {
-                        $(subsubdivC).append("<div id='red'><strong>Change: </strong>" + response[0].percent_change_24h + "%↓ <br></div>")};
-
-                        if (parseInt(response[0].percent_change_24h) === 0) {
-                        $(subsubdivC).append("<div><strong>Change: </strong> 0% <br></div>")};
-
-                    
 
                         subdivImg.append(icon);
                         subdivA.append(subsubdivA);
@@ -97,19 +90,22 @@ var queryURL = "https://api.coinmarketcap.com/v1/ticker/?limit=1000";
                         divver.append(subdivC);
 
 
+                                // console.log(i);
+
                         $(".container.inputAPI.one").append(divver);
 
-                        $("input.select-dropdown").val("    PICK YOUR COINS!");
+                        $("input.select-dropdown").val("    PICK YOUR COINS");
                         loadNext();
-                            
-                                
+
+
+
                     });
 
                     i++;
-                                
+
                 }
 
-                        
+
             }
 
             // var almostarr = localStorage.getItem("arr");
@@ -121,6 +117,8 @@ var queryURL = "https://api.coinmarketcap.com/v1/ticker/?limit=1000";
 
 
     });
+
+
 
 
 $(document).on("change", 'select', function(){
@@ -171,20 +169,11 @@ $(document).on("change", 'select', function(){
                         var subsubdivB = $("<div class='userCurrency' id='currency" + i + "b'>");
                         var subsubdivC = $("<div class='userCurrency' id='currency" + i + "c'>");
 
-                
                         $(subsubdivA).append("<strong>Name: </strong>" + response[0].name + "</br>");
                         $(subsubdivB).append("<strong>Price: $ </strong>" + response[0].price_usd + "</br>");
+                        $(subsubdivC).append("<strong>Change: </strong>" + response[0].percent_change_24h + "% <br>");
 
-                        if (parseInt(response[0].percent_change_24h) > 0) {
-                        $(subsubdivC).append("<div id='green'><strong>Change: </strong>" + response[0].percent_change_24h + "%↑ <br></div>")};
 
-                        if (parseInt(response[0].percent_change_24h) < 0) {
-                        $(subsubdivC).append("<div id='red'><strong>Change: </strong>" + response[0].percent_change_24h + "%↓ <br></div>")};
-
-                        if (parseInt(response[0].percent_change_24h) === 0) {
-                        $(subsubdivC).append("<div><strong>Change: </strong> 0% <br></div>")};
-
-                        
                         subdivImg.append(icon);
                         subdivA.append(subsubdivA);
                         subdivB.append(subsubdivB);
@@ -217,7 +206,3 @@ $(document).on("change", 'select', function(){
     loadNext();
 
     });
-
-
-
-    

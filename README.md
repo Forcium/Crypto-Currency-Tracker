@@ -1,1 +1,1 @@
-# Goldcoin
+# Crypto Currency Tracker
